@@ -40,22 +40,39 @@ ol {
 }
 
 .review {
+    border: 1px solid #ddd;
+    border-radius: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     font-size: 20px;
     font-weight: 600;
     color: #111;
 }
 
+.review:hover {
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.7);
+}
+
 p {
    margin: 0;
+   text-align: center;
+}
+
+.status:hover {
+    cursor: pointer;
 }
 
 .add__product {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.7);
+    width: 200px;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    width: 200px;
+    padding: 10px;
+    margin-top: 25px;
 }
 
 input {

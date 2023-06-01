@@ -5,38 +5,78 @@ const list__item = document.querySelector('.list__item');
 const shoppingList = [
   {
     name: 'Молоко',
-    volumePack: '1 літра',
-    status: 'не куплено'
+    volumePack: 1,
+    status: 'не куплено',
+    count: 0
   },
   {
     name: 'Йогур',
-    volumePack: '4 пачки',
-    status: 'не куплено'
+    volumePack: 1,
+    status: 'не куплено',
+    count: 1
   },
   {
     name: 'Сир',
-    volumePack: '300 грам',
-    status: 'куплено'
+    volumePack: 1,
+    status: 'куплено',
+    count: 2
   },
   {
     name: 'Творог',
-    volumePack: '2 пачки',
-    status: 'куплено'
+    volumePack: 2,
+    status: 'куплено',
+    count: 3
   },
   {
     name: 'Кава',
-    volumePack: '1 пачка',
-    status: 'куплено'
+    volumePack: 1,
+    status: 'куплено',
+    count: 4
   },
   {
     name: 'Батон',
-    volumePack: '1 буханка',
-    status: 'не куплено'
+    volumePack: '1',
+    status: 'не куплено',
+    count: 5
   }
 ];
 
 
+function addProduct(itemName, quantity) {
+  // функція для додавання нового та існуючого товару
+
+  console.log("input_name:", itemName)
+  console.log("input_volume:", quantity)
+
+  const existingItem = shoppingList.find(item => item.name.toLowerCase() === itemName.toLowerCase());
+  if (existingItem) {
+    existingItem.volumePack += quantity;
+    tableStart()
+  } else {
+
+    shoppingList.push({
+      name: itemName,
+      volumePack: quantity,
+      status: 'не куплено',
+      count: shoppingList.length
+    });
+    console.log(shoppingList.length);
+    list__item.insertAdjacentHTML("beforeend", `
+        <li class="review">
+          <p>${itemName}</p>
+          <p class='status ${shopping.count}'>не куплено</p>
+          <p>${quantity}</p>
+          <p>шт</p>
+        </li>
+    `);
+  }
+
+  console.log(shoppingList);
+}
+
 function tableStart() {
+  list__item.innerHTML = '';
+
   // Виведення елементів зі статусом "куплено"
   for (let i = 0; i < shoppingList.length; i++) {
     let shopping = shoppingList[i];
@@ -44,8 +84,9 @@ function tableStart() {
       list__item.insertAdjacentHTML("beforeend", `
         <li class="review">
           <p>${shopping.name}</p>
-          <p>${shopping.status}</p>
+          <p class='status ${shopping.count}'>${shopping.status}</p>
           <p>${shopping.volumePack}</p>
+          <p>шт</p>
         </li>
       `);
     }
@@ -58,12 +99,35 @@ function tableStart() {
       list__item.insertAdjacentHTML("beforeend", `
         <li class="review">
           <p>${shopping.name}</p>
-          <p>${shopping.status}</p>
+          <p class='status ${shopping.count}'>${shopping.status}</p>
           <p>${shopping.volumePack}</p>
+          <p>шт</p>
         </li>
       `);
     }
   }
+
+
+  const statusElements = document.querySelectorAll('.status');
+
+  statusElements.forEach((statusElement) => {
+    statusElement.addEventListener('click', () => {
+      // Отримуємо count з класу елемента
+      const count = statusElement.classList[1];
+
+      // Знаходимо відповідний товар за count
+      const item = shoppingList.find((shopping) => shopping.count == count);
+
+      // Змінюємо статус товару
+      item.status = (item.status === 'не куплено') ? 'куплено' : 'не куплено';
+
+      // Оновлюємо відображення статусу
+      statusElement.textContent = item.status;
+      console.log(shoppingList);
+      tableStart();
+    });
+  });
+
 }
 
 tableStart()
@@ -72,18 +136,14 @@ const btn__add = document.querySelector('.btn__add')
 const input_name = document.querySelector('.input__add-name')
 const input_volume = document.querySelector('.input__add-volume')
 
-function addProduct () {
-  console.log("input_name:", input_name.value)
-  console.log("input_volume:", input_volume.value)
-}
-
-
 
 btn__add.addEventListener("click", (event) => {
   event.preventDefault();
-
   console.log('Good');
-  addProduct ()
+
+  const volume = parseInt(parseInt(input_volume.value));
+  addProduct (input_name.value, volume)
   input_name.value = ''
   input_volume.value = ''
 })
+
