@@ -4,37 +4,37 @@ const list__item = document.querySelector('.list__item');
 
 const shoppingList = [
   {
-    name: 'Молоко',
+    name: 'молоко',
     volumePack: 1,
     status: 'не куплено',
     count: 0
   },
   {
-    name: 'Йогур',
+    name: 'йогур',
     volumePack: 1,
     status: 'не куплено',
     count: 1
   },
   {
-    name: 'Сир',
+    name: 'сир',
     volumePack: 1,
     status: 'куплено',
     count: 2
   },
   {
-    name: 'Творог',
+    name: 'творог',
     volumePack: 2,
     status: 'куплено',
     count: 3
   },
   {
-    name: 'Кава',
+    name: 'кава',
     volumePack: 1,
     status: 'куплено',
     count: 4
   },
   {
-    name: 'Батон',
+    name: 'батон',
     volumePack: '1',
     status: 'не куплено',
     count: 5
@@ -61,14 +61,15 @@ function addProduct(itemName, quantity) {
       count: shoppingList.length
     });
     console.log(shoppingList.length);
-    list__item.insertAdjacentHTML("beforeend", `
-        <li class="review">
-          <p>${itemName}</p>
-          <p class='status ${shopping.count}'>не куплено</p>
-          <p>${quantity}</p>
-          <p>шт</p>
-        </li>
-    `);
+    tableStart()
+    // list__item.insertAdjacentHTML("beforeend", `
+    //     <li class="review">
+    //       <p>${itemName}</p>
+    //       <p><span class='status ${shoppingList.length}'>Не куплено</span></p>
+    //       <p>${quantity}</p>
+    //       <p>шт</p>
+    //     </li>
+    // `);
   }
 
   console.log(shoppingList);
@@ -84,7 +85,7 @@ function tableStart() {
       list__item.insertAdjacentHTML("beforeend", `
         <li class="review">
           <p>${shopping.name}</p>
-          <p class='status ${shopping.count}'>${shopping.status}</p>
+          <p><span class='status ${shopping.count}'>${shopping.status}</span></p>
           <p>${shopping.volumePack}</p>
           <p>шт</p>
         </li>
@@ -99,7 +100,7 @@ function tableStart() {
       list__item.insertAdjacentHTML("beforeend", `
         <li class="review">
           <p>${shopping.name}</p>
-          <p class='status ${shopping.count}'>${shopping.status}</p>
+          <p><span class='status ${shopping.count}'>${shopping.status}</span></p>
           <p>${shopping.volumePack}</p>
           <p>шт</p>
         </li>

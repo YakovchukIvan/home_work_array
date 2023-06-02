@@ -16,6 +16,16 @@ body {
     margin: 0;
 }
 
+.block__task2 {
+    position: relative;
+}
+
+h3 {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+}
+
 .reviews-container {
     background-color: #fff;
     border-radius: 5px;
@@ -26,10 +36,13 @@ body {
 }
 
 .review {
-    border: 1px solid transparent;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    color: #777;
-    font-size: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
     padding: 5px;
     margin: 5px 0;
 }
@@ -39,28 +52,22 @@ ol {
     padding: 0;
 }
 
-.review {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    font-size: 20px;
-    font-weight: 600;
-    color: #111;
-}
-
 .review:hover {
     border: 1px solid #ddd;
     box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.7);
 }
 
 p {
-   margin: 0;
-   text-align: center;
+    margin: 0;
+    text-align: center;
 }
 
 .status:hover {
     cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(to right, #9796f0, #fbc7d4);
+    padding: 5px 10px;
 }
 
 .add__product {
@@ -92,5 +99,4 @@ input {
 
 .btn__add:active {
     opacity: 0.8;
-    
 }
