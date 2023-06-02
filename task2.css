@@ -16,14 +16,22 @@ body {
     margin: 0;
 }
 
-.block__task2 {
-    position: relative;
+.div__title {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    align-items: center;
+}
+
+.div__title > p {
+    font-size: 30px;
+    font-weight: 700;
 }
 
 h3 {
     position: absolute;
-    top: -10px;
-    right: 15px;
+    top: -20px;
+    right: 4px;
 }
 
 .reviews-container {
@@ -35,11 +43,11 @@ h3 {
     margin-top: 20px;
 }
 
-.review {
+.reviewCheck {
     border: 1px solid #ddd;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     font-size: 20px;
     font-weight: 600;
     color: #111;
@@ -50,6 +58,25 @@ h3 {
 ol {
     list-style-type: none;
     padding: 0;
+}
+
+.block__check {
+    position: relative;
+    border: 1px dashed rgb(87, 85, 85);
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+.timeSpan {
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 85px;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .review:hover {

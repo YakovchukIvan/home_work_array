@@ -51,7 +51,7 @@ function addProduct(itemName, quantity) {
   const existingItem = shoppingList.find(item => item.name.toLowerCase() === itemName.toLowerCase());
   if (existingItem) {
     existingItem.volumePack += quantity;
-    tableStart()
+    shoppingStart()
   } else {
 
     shoppingList.push({
@@ -61,7 +61,7 @@ function addProduct(itemName, quantity) {
       count: shoppingList.length
     });
     console.log(shoppingList.length);
-    tableStart()
+    shoppingStart()
     // list__item.insertAdjacentHTML("beforeend", `
     //     <li class="review">
     //       <p>${itemName}</p>
@@ -75,7 +75,7 @@ function addProduct(itemName, quantity) {
   console.log(shoppingList);
 }
 
-function tableStart() {
+function shoppingStart() {
   list__item.innerHTML = '';
 
   // Виведення елементів зі статусом "куплено"
@@ -125,13 +125,13 @@ function tableStart() {
       // Оновлюємо відображення статусу
       statusElement.textContent = item.status;
       console.log(shoppingList);
-      tableStart();
+      shoppingStart();
     });
   });
 
 }
 
-tableStart()
+shoppingStart()
 
 const btn__add = document.querySelector('.btn__add')
 const input_name = document.querySelector('.input__add-name')
