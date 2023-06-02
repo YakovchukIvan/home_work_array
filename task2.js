@@ -9,6 +9,11 @@ const shoppingCheck = [
 ];
 
 const list__check = document.querySelector('.list__check-item')
+const all__summ = document.querySelector('.all__summ')
+const min__summ = document.querySelector('.min__summ')
+const max__summ = document.querySelector('.max__summ')
+const medium__summ = document.querySelector('.medium__summ')
+
 
 
 function checkStart() {
@@ -27,10 +32,31 @@ function checkStart() {
     `);
   }
 
-  startTime(); // запускаємо функцію яка виводить годинник
+  let resultAllSumm = 0;
+  for (let j = 0; j < shoppingCheck.length; j++) {
+    resultAllSumm += shoppingCheck[j].price;
+    console.log(resultAllSumm);
+  }
+  all__summ.innerText = `${resultAllSumm} грн`
+
+  // let resultMinSumm = 0;
+  // for (let i = 0; i < array.length; i++) {
+  //   const element = array[i];
+
+    
+  // }
+
+   
 }
 
 checkStart()
+
+
+
+
+
+
+
 
 function startTime() {
     const timeSpan = document.querySelector('.timeSpan')
@@ -44,9 +70,7 @@ function startTime() {
     const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
     const formattedDate = currentDate.toLocaleDateString(undefined, options);
     timeSpan.textContent = timeString + ' ' + formattedDate;
-
 }
-
-
+startTime();// запускаємо функцію яка виводить годинник
 
 

@@ -84,9 +84,18 @@ ol {
     box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.7);
 }
 
+.purchase__report{
+    /* border: 1px solid red; */
+}
+.purchase__report > div {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding-right: 150px;
+}
+
 p {
     margin: 0;
-    text-align: center;
 }
 
 .status:hover {
@@ -97,33 +106,3 @@ p {
     padding: 5px 10px;
 }
 
-.add__product {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.7);
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 10px;
-    margin-top: 25px;
-}
-
-input {
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 6px;
-}
-
-.btn__add {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: fit-content;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-.btn__add:active {
-    opacity: 0.8;
-}
