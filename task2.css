@@ -85,10 +85,9 @@ ol {
 }
 
 .purchase__report{
-    /* border: 1px solid red; */
+    display: none;
 }
 .purchase__report > div {
-    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
     padding-right: 150px;

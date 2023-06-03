@@ -9,14 +9,20 @@ import { shoppingList } from './task1.js';
 //   { name: 'Фрукти', quantity: 3, price: 15, count: 5 }
 // ];
 
+
 const list__check = document.querySelector('.list__check-item')
 const all__summ = document.querySelector('.all__summ')
 const min__summ = document.querySelector('.min__summ')
 const max__summ = document.querySelector('.max__summ')
 const medium__summ = document.querySelector('.medium__summ')
 
+
+
  export function checkStart() {
   list__check.innerHTML = '';
+  
+  const purchase__report = document.querySelector('.purchase__report')
+  purchase__report.style.display = "block";
 
   function startTime() {
     const timeSpan = document.querySelector('.timeSpan')
