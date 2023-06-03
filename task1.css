@@ -97,7 +97,18 @@ input {
     cursor: pointer;
 }
 
-.btn__add:active {
+.btn__add:active,
+.btnTask2 {
     opacity: 0.8;
-    
+}
+
+.btnTask2 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 4px 8px;
+    cursor: pointer;
 }

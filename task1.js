@@ -1,48 +1,56 @@
 "use strict"
+import { checkStart } from './task2.js';
 
 const list__item = document.querySelector('.list__item');
+const btnTask2 = document.querySelector('.btnTask2')
 
-const shoppingList = [
+export const shoppingList = [
   {
     name: 'молоко',
-    volumePack: 1,
+    quantity: 1,
     status: 'не куплено',
+    price: 25,
     count: 0
   },
   {
     name: 'йогур',
-    volumePack: 1,
+    quantity: 1,
     status: 'не куплено',
+    price: 10,
     count: 1
   },
   {
     name: 'сир',
-    volumePack: 1,
+    quantity: 1,
     status: 'куплено',
+    price: 2,
     count: 2
   },
   {
     name: 'творог',
-    volumePack: 2,
+    quantity: 2,
     status: 'куплено',
+    price: 50,
     count: 3
   },
   {
     name: 'кава',
-    volumePack: 1,
+    quantity: 1,
     status: 'куплено',
+    price: 15,
     count: 4
   },
   {
     name: 'батон',
-    volumePack: '1',
+    quantity: '1',
     status: 'не куплено',
+    price: 10,
     count: 5
   }
 ];
 
 
-function addProduct(itemName, quantity) {
+function addProduct(itemName, quantity, price) {
   // функція для додавання нового та існуючого товару
 
   console.log("input_name:", itemName)
@@ -50,14 +58,15 @@ function addProduct(itemName, quantity) {
 
   const existingItem = shoppingList.find(item => item.name.toLowerCase() === itemName.toLowerCase());
   if (existingItem) {
-    existingItem.volumePack += quantity;
+    existingItem.quantity += quantity;
     shoppingStart()
   } else {
 
     shoppingList.push({
       name: itemName,
-      volumePack: quantity,
+      quantity: quantity,
       status: 'не куплено',
+      price: price,
       count: shoppingList.length
     });
     console.log(shoppingList.length);
@@ -86,7 +95,7 @@ function shoppingStart() {
         <li class="review">
           <p>${shopping.name}</p>
           <p><span class='status ${shopping.count}'>${shopping.status}</span></p>
-          <p>${shopping.volumePack}</p>
+          <p>${shopping.quantity}</p>
           <p>шт</p>
         </li>
       `);
@@ -101,7 +110,7 @@ function shoppingStart() {
         <li class="review">
           <p>${shopping.name}</p>
           <p><span class='status ${shopping.count}'>${shopping.status}</span></p>
-          <p>${shopping.volumePack}</p>
+          <p>${shopping.quantity}</p>
           <p>шт</p>
         </li>
       `);
@@ -128,7 +137,6 @@ function shoppingStart() {
       shoppingStart();
     });
   });
-
 }
 
 shoppingStart()
@@ -136,15 +144,30 @@ shoppingStart()
 const btn__add = document.querySelector('.btn__add')
 const input_name = document.querySelector('.input__add-name')
 const input_volume = document.querySelector('.input__add-volume')
-
+const input__price = document.querySelector('.input__add-price')
 
 btn__add.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log('Good');
 
-  const volume = parseInt(parseInt(input_volume.value));
-  addProduct (input_name.value, volume)
+  const volume = parseInt(input_volume.value);
+  const price = parseInt(input_volume.value);
+
+  addProduct (input_name.value, volume, price)
   input_name.value = ''
   input_volume.value = ''
-})
+  input__price.value = ''
+
+});
+
+if (btnTask2 && !btnTask2.onclick) {
+  btnTask2.addEventListener('click', function() {
+    // Решта коду обробника події...
+    const allPurchased = shoppingList.every(item => item.status === 'куплено');
+    if(allPurchased) {
+      checkStart();
+    } else {
+        alert('Потрібно купити всі продукти');
+    }
+  });
+}
 
