@@ -24,6 +24,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-content: center;
+    gap: 10px;
     height: 35px;
     width: 800px;
     font-size: 18px;
@@ -71,4 +72,42 @@ body {
 .seacrh__block > button {
     width: 135px;
     padding: 4px 8px;
+}
+
+.btn__alpha  {
+    display: none;
+    position: absolute;
+    top: 235px;
+    right: 15px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    background-image: url(./sort-alpha.svg);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.btn__numeric {
+    display: none;
+    position: absolute;
+    top: 200px;
+    right: 15px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    background-image: url(./sort-numerik.svg);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.btn__alpha:hover,
+.btn__numeric:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.btn__alpha:active,
+.btn__numeric:active {
+    opacity: 1;
+    cursor: pointer;
 }
